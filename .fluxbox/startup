@@ -1,0 +1,73 @@
+#!/bin/sh
+#
+# fluxbox startup-script:
+#
+# Lines starting with a '#' are ignored.
+
+# Change your keymap:
+xmodmap "/home/mjalvar/.Xmodmap"
+
+# Applications you want to run with fluxbox.
+# MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
+#
+xset s off &
+# pulseaudio -D --log-target=syslog &
+# unclutter -idle 2 &
+# wmnd &
+# wmsmixer -w &
+# idesk &
+# xbacklight -set 30 &
+sh /home/mjalvar/.screenlayout/fluxbox3mon.sh
+/usr/lib/gnome-settings-daemon/gsd-xsettings &
+#mate-volume-control-applet &
+pnmixer &
+nm-applet &
+synclient TapButton1=1 &
+mate-power-manager &
+
+# brightness
+xrandr --output eDP-1 --brightness 0.7 &
+xrandr --output DP-2-2 --brightness 0.7 &
+xrandr --output DP-2-3 --brightness 0.7 &
+
+# bluetooth
+/usr/bin/python3 /usr/bin/blueman-applet &
+
+# feh --no-xinerama --bg-fill ~/.fluxbox/wall.jpg &
+# pidgin &
+# sleep 3s && wbar &
+#/opt/viber/Viber &
+
+#
+# Debian-local change:
+#   - fbautostart has been added with a quick hack to check to see if it
+#     exists. If it does, we'll start it up by default.
+#which fbautostart > /dev/null
+#if [ $? -eq 0 ]; then
+#    fbautostart
+#fi
+
+# And last but not least we start fluxbox.
+# Because it is the last app you have to run it with ''exec'' before it.
+
+# exec fluxbox
+# or if you want to keep a log:
+# exec fluxbox -log "/home/mjalvar/.fluxbox/log"
+
+fluxbox &
+fbpid=$!
+
+sleep 3
+{
+   #conky -c /home/mjalvar/.conky/conkyrc_fluxbox &
+   # Applications you want to run after fluxbox has started
+   # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN & AT THE END.
+   # ipager &
+   # gkrellm2 &
+   feh --bg-scale /home/mjalvar/.fluxbox/wall.jpg &
+   conky -c /home/mjalvar/.conky/thinky/conkyrc &
+   compton -CG &
+   plank &
+}
+wait $fbpid
+
