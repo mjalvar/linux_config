@@ -1,0 +1,88 @@
+# set to yes if you want Conky to be forked in the background
+#own_window_type normal
+#own_window_argb_visual yes
+
+background yes
+use_xft yes
+xftfont HandelGotD:size=9
+xftalpha 0.5
+update_interval 4.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+#minimum_size 200 5
+#maximum_width 250
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+   
+default_color grey
+default_shade_color red
+default_outline_color grey
+alignment top_right
+gap_x 0
+gap_y 20
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+
+net_avg_samples 2
+
+color1 222222         #Gris
+color2 43b6b8         #Blue
+color3 ff6f00         #Orang
+
+#${alignc}${font Arial Black:size:24}${time %H:%M}${font}
+#${alignc}${Time %A %m %d %Y}
+TEXT
+System ${hr 2}
+$sysname $kernel on $machine
+Hostname $alignr $nodename
+Uptime $alignr $uptime
+
+CPU $alignr ${cpu cpu0}%
+#${cpubar cpu0}
+${cpugraph cpu0 21,240 000000 43b6b8}
+
+MEM $alignc $mem / $memmax $alignr $memperc%
+$membar
+Swap $alignc $swap / $swapmax $alignr $swapperc%
+${swapbar}
+
+Root $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_free_perc /}% 
+${fs_bar /}
+Home $alignc ${fs_used /home} / ${fs_size /home} $alignr ${fs_free_perc /home}% 
+${fs_bar /home}
+
+Processes ${hr 2}
+$processes processes ($running_processes running)
+
+${color2} $alignr PID    CPU  MEM ${color}
+${color3 }${top name 1} $alignr ${top pid 1} ${top cpu 1} ${top mem 1} ${color}
+${top name 2} $alignr ${top pid 2} ${top cpu 2} ${top mem 2}
+${top name 3} $alignr ${top pid 3} ${top cpu 3} ${top mem 3}
+${top name 4} $alignr ${top pid 4} ${top cpu 4} ${top mem 4}
+${top name 5} $alignr ${top pid 5} ${top cpu 5} ${top mem 5}
+${top name 6} $alignr ${top pid 6} ${top cpu 6} ${top mem 6}
+${top name 7} $alignr ${top pid 7} ${top cpu 7} ${top mem 7}
+
+Network ${hr 2}
+${alignc}  ${color1} eth0 ${addr eth0} ${color}
+${alignc}  wlan0 ${addr wlan0}
+Down $alignr ${downspeedf wlan0} kb/s
+${downspeedgraph wlan0 21,240 000000 43b6b8 2441KiB -l -t}
+Up $alignr ${upspeedf wlan0} kb/s
+${upspeedgraph wlan0 21,240 000000 43b6b8 2441KiB -l -t}
+$alignr ${wireless_essid wlan0} ${wireless_link_qual_perc wlan0}%
+
+# lm-sensors
+#$alignr  Temp ${platform coretemp.0 temp 1} C 
+$alignr Temp ${hwmon 0 temp 1}C
+#$alignr  Bat ${battery BAT1}
+$alignr Bat ${battery_percent BAT1}%
+
+#Vol: ${execpi 4 pactl list sinks | grep "Volume: front" |cut -d " " -f6}

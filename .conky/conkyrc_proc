@@ -1,0 +1,76 @@
+# Conky settings #
+
+own_window_type normal
+own_window_argb_visual yes
+
+background yes
+update_interval 1
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+override_utf8_locale yes
+
+double_buffer yes
+no_buffers yes
+
+text_buffer_size 2048
+#imlib_cache_size 0
+
+temperature_unit celsium
+
+# Window specifications #
+own_window yes
+own_window_title Conky
+#own_window_type override
+own_window_transparent yes
+own_window_colour 000000
+#own_window_argb_visual no
+own_window_argb_value 40
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+
+border_inner_margin 0
+border_outer_margin 0
+
+minimum_size 400 450
+maximum_width 200
+
+
+alignment tl
+gap_x 10
+gap_y 10
+
+# Graphics settings #
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+# Text settings #
+use_xft yes
+xftfont caviar dreams:size=10
+xftalpha 0.0
+
+uppercase no
+default_color 000000
+
+TEXT
+${font Ubuntu:size=8} 
+${color ff6c00}Uptime: ${color 000000}${uptime_short} 
+${color ff6c00}Processes: ${color 000000}${processes} 
+${color ff6c00}Active processes: ${color 000000}${running_processes}
+
+${color 005500}Top processes by CPU usage:${color 000000}
+	${top name 1}${alignr}${top cpu 1}%
+	${top name 2}${alignr}${top cpu 2}%
+	${top name 3}${alignr}${top cpu 3}%
+	${top name 4}${alignr}${top cpu 4}%
+	${top name 5}${alignr}${top cpu 5}%
+
+${color 005500}Top processes by Memory usage:${color 000000}
+	${top_mem name 1}${alignr}${top_mem mem 1}%
+	${top_mem name 2}${alignr}${top_mem mem 2}%
+	${top_mem name 3}${alignr}${top_mem mem 3}%
+	${top_mem name 4}${alignr}${top_mem mem 4}%
+	${top_mem name 5}${alignr}${top_mem mem 5}%
+
