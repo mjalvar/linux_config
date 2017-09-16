@@ -149,11 +149,12 @@ Mod1 Mod4 O :ExecCommand killall onboard
 Mod4 X :ExecCommand gnome-terminal
 Mod4 Z :ExecCommand pantheon-terminal
 Mod4 P :ExecCommand pidgin
-Mod4 Q :ExecCommand sudo /usr/sbin/pm-suspend --auto-quirks
+Mod1 Mod4 Q :ExecCommand sudo /usr/sbin/pm-suspend --auto-quirks
 Mod4 C :ExecCommand google-chrome
 #Mod1 Mod4 C :ExecCommand  google-chrome --proxy-pac-url="http://autocache.hp.com"
 Mod1 Mod4 C :ExecCommand gnome-calculator
 Mod4 F :ExecCommand firefox
+Mod4 W :ExecCommand perl /home/mjalvar/.fluxbox/auto/auto2.pl > /tmp/auto.log
 Mod4 N :ExecCommand nautilus --no-desktop --browser
 Mod4 M :ExecCommand evolution
 Mod4 G :ExecCommand gnome-control-center

@@ -6,7 +6,7 @@ use warnings;
 # <a href="http://chromecastbg.alexmeub.com/images/orig_PVK-5085.jpg" target="_blank">
 my @wallpapers;
 
-my $html = "index.html";
+my $html = "$ENV{HOME}/.fluxbox/auto/index.html";
 open(HTML,$html) or die "Cannot open file $html\n";
 while(<HTML>){
     my $l = $_;

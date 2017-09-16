@@ -64,7 +64,7 @@ sleep 3
    # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN & AT THE END.
    # ipager &
    # gkrellm2 &
-   feh --bg-scale /home/mjalvar/.fluxbox/wall.jpg &
+   feh --bg-scale /home/mjalvar/.rand_wall &
    conky -c /home/mjalvar/.conky/thinky/conkyrc &
    compton -CG &
    plank &
