@@ -26,6 +26,13 @@ while(<HTML>){
                 system("feh --bg-scale $output");
                 last;
             };
+            if( $wall =~ /lh(\d+).googleusercontent.com..([a-z0-9-_]+)..u003ds1920-w1920-h1080-p-k-no-nd-mv/i ){
+                print ">> $2\n";
+                $wall = "https://lh$1.googleusercontent.com/$2=s2560-w2560-h1440-p-k-no-nd-mv";
+                system("wget $wall -O $output");
+                system("feh --bg-scale $output");
+                last;
+            };
         }
     };
 };

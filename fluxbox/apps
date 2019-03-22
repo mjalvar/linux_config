@@ -1,4 +1,10 @@
 [app] (name=fbrun)
-  [Position]	(WINCENTER)	{0 0}
+  [Position]	(CENTER)	{0 0}
   [Layer]	{2}
+[end]
+[app] (name=plank)
+  [Layer]	{10}
+[end]
+[transient] (name=file-jpeg) (class=Gimp-2.8) (role=file-jpeg)
+  [Workspace]	{4}
 [end]

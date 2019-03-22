@@ -17,13 +17,14 @@ xset s off &
 # wmsmixer -w &
 # idesk &
 # xbacklight -set 30 &
-sh /home/mjalvar/.screenlayout/fluxbox3mon.sh
+sh /home/mjalvar/.screenlayout/fluxbox3mon_below.sh
 /usr/lib/gnome-settings-daemon/gsd-xsettings &
 #mate-volume-control-applet &
 pnmixer &
 nm-applet &
 synclient TapButton1=1 &
 mate-power-manager &
+battery-monitor &
 
 # brightness
 xrandr --output eDP-1 --brightness 0.7 &
@@ -64,10 +65,12 @@ sleep 3
    # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN & AT THE END.
    # ipager &
    # gkrellm2 &
-   feh --bg-scale /home/mjalvar/.rand_wall &
+   compton &
+   sleep 2 &
    conky -c /home/mjalvar/.conky/thinky/conkyrc &
-   compton -CG &
    plank &
+   feh --bg-scale /home/mjalvar/.fluxbox/wall.jpg &
+   synapse &
 }
 wait $fbpid
 

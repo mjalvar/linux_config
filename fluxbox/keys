@@ -147,6 +147,7 @@ Mod4 R :ExecCommand fluxbox-remote restart
 Mod1 Mod4 O :ExecCommand killall onboard
 
 Mod4 X :ExecCommand gnome-terminal
+Mod4 L :ExecCommand gnome-screensaver-command -l
 Mod4 Z :ExecCommand pantheon-terminal
 Mod4 P :ExecCommand pidgin
 Mod1 Mod4 Q :ExecCommand sudo /usr/sbin/pm-suspend --auto-quirks
@@ -159,7 +160,7 @@ Mod4 N :ExecCommand nautilus --no-desktop --browser
 Mod4 M :ExecCommand evolution
 Mod4 G :ExecCommand gnome-control-center
 Mod4 V :ExecCommand pavucontrol
-Mod4 S :ExecCommand gnome-screenshot -a -f /tmp/screen.png
+Mod4 S :ExecCommand gnome-screenshot -a -f /tmp/$(date +%b_%d_%H_%m_%S.png)
 
 Mod1 Shift_L :Exec if [[ $(setxkbmap -query|awk '/layout:/ {print $2}') == 'en_US' ]]; then setxkbmap es; else setxkbmap en_US; fi
 
