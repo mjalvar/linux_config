@@ -172,6 +172,7 @@ workspace "8" output DP-2-3
 workspace "9" output DP-2-3
 
 bindsym $mod+Control+l exec sh ~/.config/i3/lock.sh
+bindsym $mod+Control+d exec python ~/Config/i3/find.py -o xdg-open
 
 bindsym $mod+Control+s exec gnome-screenshot -a -f /tmp/$(date +%b_%d_%H_%m_%S.png)
 bindsym $mod+Control+f exec firefox
