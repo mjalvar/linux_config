@@ -198,8 +198,8 @@ exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout es,en_US"
 # bluetooth
 exec --no-startup-id /usr/bin/python3 /usr/bin/blueman-applet
 
-exec --no-startup-id compton --opacity-rule 100:'window_type = "dock" && class_g = "i3bar"' --config /home/mjalvar/.config/compton.conf -b
-exec --no-startup-id feh --bg-scale ~/.fluxbox/wall.jpg
+exec --no-startup-id compton --opacity-rule 100:'window_type = "dock" && class_g = "i3bar"' --config /home/mjalvar/Config/i3/compton.conf -b
+exec --no-startup-id feh --bg-scale ~/.wall.jpg
 
 # brightness
 exec --no-startup-id xrandr --output eDP-1 --brightness 0.7
