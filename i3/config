@@ -163,24 +163,30 @@ bar {
 
 # melvin
 
-workspace "1" output eDP-1
-workspace "2" output eDP-1
-workspace "3" output eDP-1
-workspace "4" output DP-2-2
-workspace "5" output DP-2-2
-workspace "6" output DP-2-2
-workspace "7" output DP-2-3
-workspace "8" output DP-2-3
-workspace "9" output DP-2-3
+# Work
+set $dis1 DP-2-2
+set $dis2 DP-1
+set $dis3 eDP-1
 
-bindsym $mod+Control+l exec sh ~/.config/i3/lock.sh
+workspace "1" output $dis1
+workspace "2" output $dis1
+workspace "3" output $dis1
+workspace "4" output $dis2
+workspace "5" output $dis2
+workspace "6" output $dis2
+workspace "7" output $dis3
+workspace "8" output $dis3
+workspace "9" output $dis3
+
+
+bindsym $mod+Control+l exec sh ~/Config/i3/lock.sh
 bindsym $mod+Control+d exec python ~/Config/i3/find.py -o xdg-open
 
 bindsym $mod+Control+s exec gnome-screenshot -a -f /tmp/$(date +%b_%d_%H_%m_%S.png)
 bindsym $mod+Control+f exec firefox
 bindsym $mod+Control+p exec /usr/local/pulse/pulseUi
 bindsym $mod+Control+q exec sudo /usr/sbin/pm-suspend --auto-quirks
-bindsym $mod+Control+3 exec --no-startup-id sh /home/mjalvar/.screenlayout/fluxbox3mon_below.sh
+#bindsym $mod+Control+3 exec --no-startup-id sh /home/mjalvar/.screenlayout/fluxbox3mon_below.sh
 
 
 exec --no-startup-id xset s off # Disable screen saver blanking
