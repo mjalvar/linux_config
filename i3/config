@@ -161,27 +161,34 @@ bar {
 }
 
 
-# melvin
+# Work
+set $dis2 DP-2-2
+set $dis3 DP-1
 
-workspace "1" output eDP-1
-workspace "2" output eDP-1
-workspace "3" output eDP-1
-workspace "4" output DP-2-2
-workspace "5" output DP-2-2
-workspace "6" output DP-2-2
-workspace "7" output DP-2-3
-workspace "8" output DP-2-3
-workspace "9" output DP-2-3
+# Home
+set $dis2 DP-2-2
+set $dis3 DP-2-3
 
-bindsym $mod+Control+l exec sh ~/.config/i3/lock.sh
-bindsym $mod+Control+d exec python ~/Config/i3/find.py -o xdg-open
+set $dis1 eDP-1
+workspace "1" output $dis1
+workspace "2" output $dis1
+workspace "3" output $dis1
+workspace "4" output $dis2D
+workspace "5" output $dis2
+workspace "6" output $dis2
+workspace "7" output $dis3
+workspace "8" output $dis3
+workspace "9" output $dis3
 
-bindsym $mod+Control+s exec gnome-screenshot -a -f /tmp/$(date +%b_%d_%H_%m_%S.png)
+
+bindsym $mod+Control+l exec sh ~/Config/i3/lock.sh
+bindsym --release $mod+Control+d exec python ~/Config/i3/find.py -o xdg-open
+
+bindsym --release $mod+Control+s exec gnome-screenshot -a -f /tmp/$(date +%b_%d_%H_%m_%S.png)
 bindsym $mod+Control+f exec firefox
 bindsym $mod+Control+p exec /usr/local/pulse/pulseUi
-bindsym $mod+Shift+Control+q exec sudo /usr/sbin/pm-suspend --auto-quirks
-bindsym $mod+Control+3 exec --no-startup-id sh /home/mjalvar/.screenlayout/fluxbox3mon_below.sh
 
+bindsym $mod+Shift+Control+q exec sudo /usr/sbin/pm-suspend --auto-quirks
 
 exec --no-startup-id xset s off # Disable screen saver blanking
 exec --no-startup-id xset s 3600 3600 # Change blank time to 1 hour
@@ -190,21 +197,31 @@ exec --no-startup-id pnmixer
 exec --no-startup-id nm-applet
 exec --no-startup-id synclient TapButton1=1
 # exec --no-startup-id mate-power-manager
-exec synapse
+# exec synapse
 
 exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout es,en_US"
 
 
 # bluetooth
- exec --no-startup-id /usr/bin/python3 /usr/bin/blueman-applet
+exec --no-startup-id /usr/bin/python3 /usr/bin/blueman-applet
 
-exec --no-startup-id compton --opacity-rule 100:'window_type = "dock" && class_g = "i3bar"' --config /home/mjalvar/.config/compton.conf -b
-exec --no-startup-id feh --bg-scale ~/.fluxbox/wall.jpg
+exec --no-startup-id compton --opacity-rule 100:'window_type = "dock" && class_g = "i3bar"' --config /home/mjalvar/Config/i3/compton.conf -b
+exec --no-startup-id feh --bg-scale ~/.wall.jpg
 
 # brightness
 exec --no-startup-id xrandr --output eDP-1 --brightness 0.7
 exec --no-startup-id xrandr --output DP-2-2 --brightness 0.7
 exec --no-startup-id xrandr --output DP-2-3 --brightness 0.7
-bindsym XF86MonBrightnessDown   exec xbacklight -dec 10
-bindsym XF86MonBrightnessUp     exec xbacklight -inc 10
+
+
+# hotkeys
+bindsym XF86Display         exec --no-startup-id arandr
+bindsym XF86MonBrightnessDown   exec --no-startup-id  ~/Config/backlight/backlight.sh -d
+bindsym XF86MonBrightnessUp     exec --no-startup-id ~/Config/backlight/backlight.sh -u
+
+bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute       exec --no-startup-id pactl set-sink-mute 0 toggle 
+
+
 
