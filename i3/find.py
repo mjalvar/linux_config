@@ -107,7 +107,10 @@ def process_doc(query, doc, match_obj, args):
 
 def run_query(pattern,path):
     result = []
-    result = os.popen( 'find %s -iname %s'%(path,pattern) ).read().strip()
+    print '>/usr/bin/find %s -iname %s<'%(path,pattern)
+    #result = os.popen( '/usr/bin/find %s -iname %s'%(path,pattern) ).read().strip()
+    result = check_output( ['find',path,'-iname',pattern] )
+    #print result
     """
     for root, dirs, files in os.walk(path):
         for name in files:

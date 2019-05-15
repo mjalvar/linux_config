@@ -178,8 +178,8 @@ set $dis2 DP-2-2
 set $dis3 DP-1
 
 # Home
-set $dis2 DP-2-2
-set $dis3 DP-2-3
+#set $dis2 DP-2-2
+#set $dis3 DP-2-3
 
 set $dis1 eDP-1
 workspace "1" output $dis1
@@ -194,7 +194,7 @@ workspace "9" output $dis3
 
 
 bindsym $mod+Control+l exec sh ~/Config/i3/lock.sh
-bindsym $mod+Control+d exec /usr/bin/python ~/Config/i3/find.py -o xdg-open
+bindsym --release $mod+Control+d exec /usr/bin/python /home/mjalvar/Config/i3/find.py -o xdg-open > /tmp/find.log
 
 bindsym --release $mod+Control+s exec gnome-screenshot -a -f /tmp/$(date +%b_%d_%H_%m_%S.png)
 bindsym $mod+Control+f exec firefox
