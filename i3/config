@@ -179,7 +179,7 @@ bindsym $mod+Control+d exec python ~/Config/i3/find.py -o xdg-open
 bindsym $mod+Control+s exec gnome-screenshot -a -f /tmp/$(date +%b_%d_%H_%m_%S.png)
 bindsym $mod+Control+f exec firefox
 bindsym $mod+Control+p exec /usr/local/pulse/pulseUi
-bindsym $mod+Control+q exec sudo /usr/sbin/pm-suspend --auto-quirks
+bindsym $mod+Shift+Control+q exec sudo /usr/sbin/pm-suspend --auto-quirks
 bindsym $mod+Control+3 exec --no-startup-id sh /home/mjalvar/.screenlayout/fluxbox3mon_below.sh
 
 
