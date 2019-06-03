@@ -174,8 +174,8 @@ bar {
 
 
 # Work
-set $dis2 DP-2-2
-set $dis3 DP-1
+set $dis3 DP-2-1
+set $dis2 DP-1
 
 # Home
 #set $dis2 DP-2-2
