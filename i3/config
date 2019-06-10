@@ -9,6 +9,9 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# https://thomashunter.name/i3-configurator/
+client.focused          #171E23 #171E23 #7AC3DD #2E3B3D   #285577
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
