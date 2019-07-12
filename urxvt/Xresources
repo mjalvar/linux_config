@@ -2,6 +2,7 @@
 Xcursor.size: 16
 
 ! urxvt
+URxvt*utf8:               1
 URxvt*buffered: true
 URxvt*cursorBlink: true
 URxvt*borderless: 1
