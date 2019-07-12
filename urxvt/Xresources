@@ -4,7 +4,6 @@ Xcursor.size: 16
 ! urxvt
 URxvt*buffered: true
 URxvt*cursorBlink: true
-URxvt*underlineColor: yellow
 URxvt*borderless: 1
 URxvt*scrollBar: false
 URxvt*loginShell: true
@@ -18,7 +17,8 @@ URxvt.matcher.button: 1
 URxvt*depth: 32
 URxvt*background: rgba:0000/0000/0200/c800
 URxvt*foreground: #657b83
+URxvt*underlineColor: #f4885b
 
- URxvt*font:  xft:inconsolata:size=10:antialias=true
+URxvt*font:  xft:inconsolata:size=10:antialias=true
 ! URxvt.letterSpace: -1
 !URxvt*font: -*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*
