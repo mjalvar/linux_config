@@ -229,9 +229,9 @@ exec --no-startup-id compton --config /home/mjalvar/Config/i3/compton.conf
 exec --no-startup-id feh --bg-scale ~/.wall.jpg
 
 # brightness
-exec --no-startup-id xrandr --output eDP-1 --brightness 0.7
-exec --no-startup-id xrandr --output DP-2-2 --brightness 0.7
-exec --no-startup-id xrandr --output DP-2-3 --brightness 0.7
+exec --no-startup-id xrandr --output eDP-1 --brightness 0.8
+exec --no-startup-id xrandr --output DP-2-2 --brightness 0.6
+exec --no-startup-id xrandr --output DP-2-3 --brightness 0.6
 
 
 #################################
@@ -265,7 +265,7 @@ bindsym $mod+BackSpace scratchpad show
 mode "App launch" {
     #bindsym v exec rxvt -hold -e vtop; mode "default"
     bindsym z exec zoom; mode "default"
-    bindsym p exec pidgin; mode "default"
+    bindsym o exec pidgin; mode "default"
     bindsym c exec gnome-terminal --window -- cava; mode "default"
     bindsym v exec gnome-terminal --window -- vtop; mode "default"
     bindsym w exec feh --bg-scale ~/.wall.jpg; mode "default"
