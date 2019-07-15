@@ -183,7 +183,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        font pango:monospace 8,FontAwesome 8
+        #font pango:monospace 8,FontAwesome 8
+        font xft:inconsolata 9
         position top
         status_command i3status
         tray_output primary
@@ -209,16 +210,8 @@ workspace "7" output $dis3
 workspace "8" output $dis3
 workspace "9" output $dis3
 
-
-bindsym $mod+Control+l exec sh ~/Config/i3/lock.sh
-bindsym --release $mod+Control+d exec /usr/bin/python /home/mjalvar/Config/i3/find.py -o xdg-open > /tmp/find.log
-
-bindsym --release $mod+Control+s exec gnome-screenshot -a -f /tmp/$(date +%b_%d_%H_%m_%S.png)
-bindsym $mod+Control+f exec firefox
-bindsym $mod+Control+p exec /usr/local/pulse/pulseUi
-
-bindsym $mod+Shift+Control+q exec sudo /usr/sbin/pm-suspend --auto-quirks
-
+#################################
+# startup
 exec --no-startup-id xset s off # Disable screen saver blanking
 exec --no-startup-id xset s 3600 3600 # Change blank time to 1 hour
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
@@ -227,9 +220,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id synclient TapButton1=1
 # exec --no-startup-id mate-power-manager
 # exec synapse
-
 exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout es,en_US"
-
 
 # bluetooth
 exec --no-startup-id /usr/bin/python3 /usr/bin/blueman-applet
@@ -238,11 +229,19 @@ exec --no-startup-id compton --config /home/mjalvar/Config/i3/compton.conf
 exec --no-startup-id feh --bg-scale ~/.wall.jpg
 
 # brightness
-exec --no-startup-id xrandr --output eDP-1 --brightness 0.7
-exec --no-startup-id xrandr --output DP-2-2 --brightness 0.7
-exec --no-startup-id xrandr --output DP-2-3 --brightness 0.7
+exec --no-startup-id xrandr --output eDP-1 --brightness 1
+exec --no-startup-id xrandr --output DP-2-2 --brightness 0.6
+exec --no-startup-id xrandr --output DP-2-3 --brightness 0.6
 
 
+#################################
+# shortcuts
+bindsym $mod+Control+l exec sh ~/Config/i3/lock.sh
+bindsym --release $mod+Control+d exec /usr/bin/python /home/mjalvar/Config/i3/find.py -o xdg-open > /tmp/find.log
+bindsym $mod+Shift+Control+q exec sudo /usr/sbin/pm-suspend --auto-quirks
+
+
+#################################
 # hotkeys
 bindsym XF86Display         exec --no-startup-id arandr
 bindsym XF86MonBrightnessDown   exec --no-startup-id  ~/Config/backlight/backlight.sh -d
@@ -250,7 +249,35 @@ bindsym XF86MonBrightnessUp     exec --no-startup-id ~/Config/backlight/backligh
 
 bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute       exec --no-startup-id pactl set-sink-mute 0 toggle 
+bindsym XF86AudioMute       exec --no-startup-id pactl set-sink-mute 0 toggle
 
 
+#################################
+#---Dropdown/Scratchpad--#
+#for_window [instance="dropdown"] floating enable
+#for_window [instance="dropdown"] move scratchpad
+#exec --no--startup gnome-calc
+bindsym $mod+Shift+BackSpace move scratchpad
+bindsym $mod+BackSpace scratchpad show
 
+#################################
+# APP mode
+mode "App launch" {
+    #bindsym v exec rxvt -hold -e vtop; mode "default"
+    bindsym z exec zoom; mode "default"
+    bindsym o exec pidgin; mode "default"
+    bindsym c exec gnome-calculator; mode "default"
+    bindsym v exec gnome-terminal --window -- cava; mode "default"
+    bindsym t exec gnome-terminal --window -- htop; mode "default"
+    bindsym w exec feh --bg-scale ~/.wall.jpg; mode "default"
+    bindsym m exec spotify; mode "default"
+    bindsym n exec nautilus; mode "default"
+    bindsym f exec firefox; mode "default"
+    bindsym p exec /usr/local/pulse/pulseUi; mode "default"
+    bindsym x exec rxvt-unicode; mode "default"
+    bindsym --release s exec gnome-screenshot -a -f /tmp/$(date +%b_%d_%H_%m_%S.png); mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+x mode "App launch"
