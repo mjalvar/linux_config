@@ -273,7 +273,7 @@ mode "App launch" {
     bindsym w exec feh --bg-scale ~/.wall.jpg; mode "default"
     bindsym m exec spotify; mode "default"
     bindsym n exec nautilus; mode "default"
-    bindsym f exec firefox; mode "default"
+    bindsym f exec google-chrome; mode "default"
     bindsym p exec /usr/local/pulse/pulseUi; mode "default"
     bindsym x exec rxvt-unicode; mode "default"
     bindsym --release s exec gnome-screenshot -a -f /tmp/$(date +%b_%d_%H_%m_%S.png); mode "default"
