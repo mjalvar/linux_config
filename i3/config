@@ -230,7 +230,7 @@ exec --no-startup-id feh --bg-scale ~/.wall.jpg
 
 # brightness
 # sudo bash -c "echo 100 > /sys/class/backlight/intel_backlight/brightness;
-exec --no-startup-id xrandr --output eDP-1 --brightness 0.6
+exec --no-startup-id xrandr --output eDP-1 --brightness 1.0
 exec --no-startup-id xrandr --output DP-2-2 --brightness 0.6
 exec --no-startup-id xrandr --output DP-2-3 --brightness 0.6
 
@@ -254,7 +254,12 @@ bindsym XF86AudioMute       exec --no-startup-id pactl set-sink-mute 0 toggle
 
 
 #################################
-#---Dropdown/Scratchpad--#
+##---Floating---#
+for_window [class="PulseUi"] floating enable
+
+
+#################################
+#---Dropdown/Scratchpad---#
 #for_window [instance="dropdown"] floating enable
 #for_window [instance="dropdown"] move scratchpad
 #exec --no--startup gnome-calc
