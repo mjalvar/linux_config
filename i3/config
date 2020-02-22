@@ -20,7 +20,8 @@ bindsym $mod+Shift+z    gaps inner current set 5; gaps outer current set 5
 
 
 # https://thomashunter.name/i3-configurator/
-client.focused          #171E23 #171E23 #7AC3DD #2E3B3D   #285577
+# class                 border  bground text    indicator child_border
+client.focused          #171E23 #171E23 #7AC3DD #E89393   #285577
 
 set $mod Mod4
 
@@ -281,6 +282,7 @@ mode "App launch" {
     bindsym f exec google-chrome; mode "default"
     bindsym p exec /usr/local/pulse/pulseUi; mode "default"
     bindsym x exec rxvt-unicode; mode "default"
+    bindsym k exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout es,en_US"
     bindsym --release s exec gnome-screenshot -a -f /tmp/$(date +%b_%d_%H_%m_%S.png); mode "default"
 
     bindsym 3 exec sh ~/.screenlayout/desk.sh; mode "default"
