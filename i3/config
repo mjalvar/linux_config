@@ -16,11 +16,12 @@ gaps inner 0
 gaps outer 0
 
 bindsym $mod+z          gaps inner current set 0; gaps outer current set 0
-bindsym $mod+Shift+z    gaps inner current set 10; gaps outer current set 10
+bindsym $mod+Shift+z    gaps inner current set 5; gaps outer current set 5
 
 
 # https://thomashunter.name/i3-configurator/
-client.focused          #171E23 #171E23 #7AC3DD #2E3B3D   #285577
+# class                 border  bground text    indicator child_border
+client.focused          #171E23 #171E23 #7AC3DD #E89393   #285577
 
 set $mod Mod4
 
@@ -230,7 +231,8 @@ exec --no-startup-id compton --config /home/mjalvar/Config/i3/compton.conf
 exec --no-startup-id feh --bg-scale ~/.wall.jpg
 
 # brightness
-exec --no-startup-id xrandr --output eDP-1 --brightness 1
+# sudo bash -c "echo 100 > /sys/class/backlight/intel_backlight/brightness;
+exec --no-startup-id xrandr --output eDP-1 --brightness 0.7
 exec --no-startup-id xrandr --output DP-2-2 --brightness 0.6
 exec --no-startup-id xrandr --output DP-2-3 --brightness 0.6
 
@@ -254,7 +256,12 @@ bindsym XF86AudioMute       	exec --no-startup-id pactl set-sink-mute 0 toggle
 
 
 #################################
-#---Dropdown/Scratchpad--#
+##---Floating---#
+for_window [class="PulseUi"] floating enable
+
+
+#################################
+#---Dropdown/Scratchpad---#
 #for_window [instance="dropdown"] floating enable
 #for_window [instance="dropdown"] move scratchpad
 #exec --no--startup gnome-calc
@@ -276,7 +283,11 @@ mode "App launch" {
     bindsym f exec google-chrome; mode "default"
     bindsym p exec /usr/local/pulse/pulseUi; mode "default"
     bindsym x exec rxvt-unicode; mode "default"
+    bindsym k exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout es,en_US"
     bindsym --release s exec gnome-screenshot -a -f /tmp/$(date +%b_%d_%H_%m_%S.png); mode "default"
+
+    bindsym 3 exec sh ~/.screenlayout/desk.sh; mode "default"
+    bindsym 1 exec sh ~/.screenlayout/laptop.sh; mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
