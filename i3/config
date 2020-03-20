@@ -192,14 +192,15 @@ bar {
 
 
 # Work
-#set $dis3 DP-2-1
-#set $dis2 DP-1
+set $dis1 eDP1
+set $dis3 DP2-1
+set $dis2 DP1
 
 # Home
-set $dis2 DP-2-2
-set $dis3 DP-2-3
+#set $dis1 eDP-1
+#set $dis2 DP-2-2
+#set $dis3 DP-2-3
 
-set $dis1 eDP-1
 workspace "1" output $dis1
 workspace "2" output $dis1
 workspace "3" output $dis1
@@ -243,13 +244,13 @@ bindsym $mod+Shift+Control+q exec sudo /usr/sbin/pm-suspend --auto-quirks
 
 #################################
 # hotkeys
-bindsym XF86Display         exec --no-startup-id arandr
+bindsym XF86Display         	exec --no-startup-id arandr
 bindsym XF86MonBrightnessDown   exec --no-startup-id  ~/Config/backlight/backlight.sh -d
 bindsym XF86MonBrightnessUp     exec --no-startup-id ~/Config/backlight/backlight.sh -u
 
 bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute       exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioMute       	exec --no-startup-id pactl set-sink-mute 0 toggle
 
 
 #################################
@@ -272,7 +273,7 @@ mode "App launch" {
     bindsym w exec feh --bg-scale ~/.wall.jpg; mode "default"
     bindsym m exec spotify; mode "default"
     bindsym n exec nautilus; mode "default"
-    bindsym f exec firefox; mode "default"
+    bindsym f exec google-chrome; mode "default"
     bindsym p exec /usr/local/pulse/pulseUi; mode "default"
     bindsym x exec rxvt-unicode; mode "default"
     bindsym --release s exec gnome-screenshot -a -f /tmp/$(date +%b_%d_%H_%m_%S.png); mode "default"
@@ -281,3 +282,12 @@ mode "App launch" {
     bindsym Escape mode "default"
 }
 bindsym $mod+x mode "App launch"
+
+
+#################################
+# Assign Workspaces:
+# assign [class="Slack"] 1
+# assign [class="Spotify"] 2
+# assign [class="Evolution"] 7
+# assign [class="Firefox"] 8
+# assign [class="Vncviewer"] 9
