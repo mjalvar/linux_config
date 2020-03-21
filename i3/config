@@ -74,6 +74,16 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+# i3 move a workspace to another monitor (multi monitor setup)
+mode "move_workspace" {
+ bindsym Down move workspace to output down
+ bindsym Left move workspace to output left
+ bindsym Up move workspace to output up
+ bindsym Right move workspace to output right
+ bindsym Escape mode "default"
+}
+bindsym $mod+o mode "move_workspace"
+
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
