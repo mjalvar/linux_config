@@ -193,13 +193,13 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
+#bar {
         #font pango:monospace 8,FontAwesome 8
-        font xft:inconsolata 9
-        position top
-        status_command i3status
-        tray_output primary
-}
+#        font xft:inconsolata 9
+#        position top
+#        status_command i3status
+#        tray_output primary
+#}
 
 
 # Work
@@ -224,6 +224,8 @@ workspace "9" output $dis3
 
 #################################
 # startup
+exec_always --no-startup-id $HOME/Config/polybar/launch.sh
+
 exec --no-startup-id xset s off # Disable screen saver blanking
 exec --no-startup-id xset s 3600 3600 # Change blank time to 1 hour
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
