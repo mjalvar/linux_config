@@ -6,7 +6,7 @@
 
 * {
     width: 1500;
-    font: "hack 10";
+    font: "monospace 10";
     selected-normal-foreground:  rgba ( 255, 255, 255, 100 % );
     foreground:                  rgba ( 193, 193, 193, 100 % );
     normal-foreground:           @foreground;
@@ -20,7 +20,7 @@
     lightbg:                     rgba ( 238, 232, 213, 100 % );
     selected-active-foreground:  rgba ( 128, 203, 196, 100 % );
     alternate-active-background: rgba ( 39, 50, 56, 100 % );
-    background:                  rgba ( 39, 50, 56, 100 % );
+    background:                  rgba ( 39, 39, 39, 50 % );
     bordercolor:                 rgba ( 39, 50, 56, 100 % );
     alternate-normal-foreground: @foreground;
     normal-background:           rgba ( 39, 50, 56, 100 % );
