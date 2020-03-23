@@ -1,5 +1,6 @@
 alias v='vim'
 alias vtop='vtop -t dark'
+alias cava='cava -p $HOME/Config/cava/config'
 
 export HPE='/home/mjalvar/Documents/HPE'
 export LesPaul='/home/mjalvar/Documents/HPE/LesPaul'
