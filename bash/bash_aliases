@@ -1,0 +1,7 @@
+alias v='vim'
+alias vtop='vtop -t dark'
+
+export HPE='/home/mjalvar/Documents/HPE'
+export LesPaul='/home/mjalvar/Documents/HPE/LesPaul'
+
+export PATH=$HOME/go/bin:$PATH
