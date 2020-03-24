@@ -58,7 +58,7 @@ font-2 = FontAwesome:pixelsize=12;0
 
 
 
-modules-left = bspwm i3
+modules-left = i3
 modules-center =
 ;modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 modules-right = filesystem pulseaudio xkeyboard memory cpu vpn wlan eth battery temperature date
@@ -156,40 +156,40 @@ label-urgent-padding = 1
 ; label-separator = |
 
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
+; [module/mpd]
+; type = internal/mpd
+; format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+; 
+; icon-prev = 
+; icon-stop = 
+; icon-play = 
+; icon-pause = 
+; icon-next = 
+; 
+; label-song-maxlen = 25
+; label-song-ellipsis = true
+; 
+; [module/xbacklight]
+; type = internal/xbacklight
+; 
+; format = <label> <bar>
+; label = BL
+; 
+; bar-width = 10
+; bar-indicator = |
+; bar-indicator-foreground = #fff
+; bar-indicator-font = 2
+; bar-fill = ─
+; bar-fill-font = 2
+; bar-fill-foreground = #9f78e1
+; bar-empty = ─
+; bar-empty-font = 2
+; bar-empty-foreground = ${colors.foreground-alt}
+; 
+; [module/backlight-acpi]
+; inherit = module/xbacklight
+; type = internal/backlight
+; card = intel_backlight
 
 [module/cpu]
 type = internal/cpu
@@ -221,16 +221,38 @@ format-underline = #4bffdc
 label = %percentage_used:2%%
 
 [module/vpn]
-type = internal/network
-interface = tun0
-interval = 3.0
+type = custom/script
+; Available tokens:
+;   %counter%
+; Command to be executed (using "/bin/sh -c [command]")
+exec = ~/Config/polybar/vpn.sh
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+; Conditional command that, if defined, needs to exit successfully
+; before the main exec command is invoked.
+; Default: ""
+; exec-if = pgrep -i PulseUi
 
-format-disconnected =
+; Will the script output continous content?
+; Default: false
+tail = true
+
+; Seconds to sleep between updates
+; Default: 5 (0 if `tail = true`)
+interval = 5
+
+;type = internal/network
+;interface = tun0
+;interval = 3.0
+;
+format =   <label>
+format-underline = #55aa55
+label = %output:0:15:...%
+;format-connected-underline = #55aa55
+;format-connected-prefix = " "
+;format-connected-prefix-foreground = ${colors.foreground-alt}
+;label-connected = %local_ip%
+
+;format-disconnected =
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
