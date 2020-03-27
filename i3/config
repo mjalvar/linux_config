@@ -240,7 +240,7 @@ exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout es,en_US"
 exec --no-startup-id /usr/bin/python3 /usr/bin/blueman-applet
 
 exec --no-startup-id compton --config /home/mjalvar/Config/i3/compton.conf
-exec --no-startup-id feh --bg-scale ~/.wall.jpg
+exec --no-startup-id feh --bg-scale ~/Config/wall/current.png
 
 # brightness
 # sudo bash -c "echo 100 > /sys/class/backlight/intel_backlight/brightness;
@@ -269,6 +269,8 @@ bindsym XF86AudioMute       	exec --no-startup-id pactl set-sink-mute 0 toggle
 
 #################################
 ##---Floating---#
+# use xprop to find the class
+for_window [title="ImageMagick"] floating enable
 for_window [class="PulseUi"] floating enable
 
 
@@ -289,7 +291,7 @@ mode "App launch" {
     bindsym c exec gnome-calculator; mode "default"
     bindsym v exec gnome-terminal --window -- cava; mode "default"
     bindsym t exec gnome-terminal --window -- htop; mode "default"
-    bindsym w exec feh --bg-scale ~/.wall.jpg; mode "default"
+    bindsym w exec feh --bg-scale ~/Config/wall/current.png; mode "default"
     bindsym m exec spotify; mode "default"
     bindsym n exec nautilus; mode "default"
     bindsym f exec google-chrome; mode "default"
