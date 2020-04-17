@@ -286,11 +286,11 @@ bindsym $mod+BackSpace scratchpad show
 # APP mode
 mode "App launch" {
     #bindsym v exec rxvt -hold -e vtop; mode "default"
+    bindsym r exec bash ~/Config/yoga/rotate.sh; mode "default"
     bindsym z exec zoom; mode "default"
     bindsym o exec pidgin; mode "default"
     bindsym c exec gnome-calculator; mode "default"
     bindsym v exec gnome-terminal --window -- cava; mode "default"
-    bindsym t exec gnome-terminal --window -- htop; mode "default"
     bindsym w exec feh --bg-scale ~/Config/wall/current.png; mode "default"
     bindsym m exec spotify; mode "default"
     bindsym n exec nautilus; mode "default"
