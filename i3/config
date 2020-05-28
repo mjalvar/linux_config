@@ -235,6 +235,7 @@ exec --no-startup-id synclient TapButton1=1
 # exec --no-startup-id mate-power-manager
 # exec synapse
 exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout es,en_US"
+exec --no-startup-id redshift
 
 # bluetooth
 exec --no-startup-id /usr/bin/python3 /usr/bin/blueman-applet

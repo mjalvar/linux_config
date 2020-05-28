@@ -1,0 +1,21 @@
+PS1='\[\e[0;36m\]\u\[\e[0;37m\]@\[\e[0;33m\]\h\[\e[0;37m\]:\[\e[0;37m\]\w> \[\e[0m\]'
+
+alias ssh_vl092='ssh alvarame@vl092.austin.hp.com'
+alias ssh_rose='ssh alvarame@hpnasic039.rose.rdlabs.hpecorp.net'
+alias nxclient='/usr/NX/bin/nxclient'
+alias nxclient_vl092='/usr/NX/bin/nxclient --config ~/.nx/config/vl092flux.nxs'
+alias svn_get_docs='svn --username=melvin.alvarado co https://csvnhou-pro.houston.hpecorp.net:18490/svn/hpn_rosewood_docs/trunk $HOME/Documents/HPE/Rosewood/rw_docs'
+alias vnc_rose='vncviewer hpnasic039.rose.rdlabs.hpecorp.net:1 -passwd ~/.vnc/passwd -MenuKey F1'
+#alias vnc_rose3='vncviewer hpnasic039.rose.rdlabs.hpecorp.net:3 -passwd ~/.vnc/passwd -MenuKey F1 -via alvarame@hpnasic039.rose.rdlabs.hpecorp.net localhost:3'
+alias vnc_cee='vncviewer -passwd ~/.vnc/passwd -MenuKey F12 -via alvarame@vl092.austin.hp.com localhost:1'
+export wa='/net/workspace'
+
+alias ssh_ubuntu='ssh alvarame@hpnasic306.rose.rdlabs.hpecorp.net'
+alias ssh_scarletwitch='ssh alvarame@10.250.102.136'
+alias ssh_blackwidow='ssh alvarame@10.250.102.128'
+
+export http_proxy='http://web-proxy.rose.hpecorp.net:8080'
+export https_proxy='http://web-proxy.rose.hpecorp.net:8080'
+
+alias mount_images='mount -t cifs -o username=alvarame //s54w0369g.americas.hpqcorp.net/Images/VM/WIN10 /mnt/'
+
