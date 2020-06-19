@@ -6,7 +6,7 @@
 
 #### configuration
 # find your Touchscreen and Touchpad device with `xinput`
-TouchscreenDevice='Wacom Pen and multitouch sensor Finger'
+TouchscreenDevice='Wacom Pen and multitouch sensor Finger touch'
 TouchpadDevice='SynPS/2 Synaptics TouchPad'
 
 if [ "$1" = "--help"  ] || [ "$1" = "-h"  ] ; then
@@ -84,6 +84,6 @@ else
   xinput enable "$TouchpadDevice"
   killall onboard
   # xcompmgr -c &
-  feh --bg-scale /home/mjalvar/.wall.jpg &
+  feh --bg-scale ~/Config/wall/current.png &
 fi
 
