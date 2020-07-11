@@ -226,8 +226,9 @@ workspace "9" output $dis3
 # startup
 exec_always --no-startup-id $HOME/Config/polybar/launch.sh
 
-exec --no-startup-id xset s off # Disable screen saver blanking
-exec --no-startup-id xset s 3600 3600 # Change blank time to 1 hour
+#exec --no-startup-id xset s off # Disable screen saver blanking
+exec_always --no-startup-id xset dpms 0 0 600 # Turn OFF screen after 10 mins
+
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec --no-startup-id pnmixer
 exec --no-startup-id nm-applet
