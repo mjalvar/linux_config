@@ -254,7 +254,7 @@ exec --no-startup-id xrandr --output DP-2-3 --brightness 0.6
 #################################
 # shortcuts
 bindsym $mod+Control+l exec sh ~/Config/i3/lock.sh
-bindsym --release $mod+Control+d exec /usr/bin/python /home/mjalvar/Config/i3/find.py -o xdg-open > /tmp/find.log
+bindsym --release $mod+Control+d exec /usr/bin/python2 /home/mjalvar/Config/i3/find.py -o xdg-open > /tmp/find.log
 bindsym $mod+Shift+Control+q exec sudo /usr/sbin/pm-suspend --auto-quirks
 
 
