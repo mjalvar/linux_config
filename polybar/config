@@ -18,7 +18,7 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background = #000
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -225,7 +225,7 @@ type = custom/script
 ; Available tokens:
 ;   %counter%
 ; Command to be executed (using "/bin/sh -c [command]")
-exec = ~/Config/polybar/vpn.sh
+exec = /bin/sh -c ~/Config/polybar/vpn.sh
 
 ; Conditional command that, if defined, needs to exit successfully
 ; before the main exec command is invoked.
@@ -260,7 +260,7 @@ label = %output:0:15:...%
 
 [module/wlan]
 type = internal/network
-interface = wlp1s0
+interface = wlp4s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
