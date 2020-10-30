@@ -1,5 +1,5 @@
 # set to yes if you want Conky to be forked in the background
-#own_window_type normal
+own_window_type override
 #own_window_argb_visual yes
 
 background yes
@@ -17,14 +17,14 @@ double_buffer yes
 draw_shades no
 draw_outline no
 draw_borders no
-draw_graph_borders yes
+draw_graph_borders no
 
 default_color grey
 default_shade_color red
 default_outline_color grey
 alignment top_left
-gap_x 6120
-gap_y 40
+gap_x 10
+gap_y 50
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
