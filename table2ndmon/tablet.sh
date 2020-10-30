@@ -8,7 +8,7 @@ xrandr --addmode HDMI-2 1024x600_60.00
 xrandr --output HDMI-2 --mode "1024x600_60.00" --below eDP-1
 xhost +
 #x11vnc -clip 1024x600+0+1080 -noxdamage 
-x11vnc -clip 1024x600+0+1440 -noxdamage -localhost -forever
+x11vnc -clip 1024x600+0+1080 -noxdamage -localhost -forever
 
 
 # adb reverse tcp:5900 tcp:5900

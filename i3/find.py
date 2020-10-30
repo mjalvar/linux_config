@@ -197,7 +197,7 @@ def main(argv):
     if args.query_string:
         #results_list = run_query(recoll_db, args)
         #results_list = ['/home/mjalvar/Documents/Latex/tutorial/hello.pdf\t','algo2']
-        results_list = run_query(args.query_string, '/home/mjalvar/Documents/HPE')
+        results_list = run_query(args.query_string, '/home/mjalvar/Documents/HPE/repos/pls-svn')
         print results_list
         """
         for i,r in enumerate(results_list):
