@@ -41,9 +41,9 @@ ${execi 600 ~/Config/conky/rss.py}
 ${voffset -181}
 ${goto 600}${font sans-serif:bold:size=8}SYSTEM
 ${voffset 14}
+${goto 600}$nodename $kernel
 ${goto 600}${font sans-serif:normal:size=8}IP: ${addr wlp4s0}
-${goto 600}HOST: $nodename
-${goto 600}UPTIME: $uptime_short
+${goto 600}UP: $uptime_short
 
 ${goto 600}${exec sensors | grep 'Package id' | awk '{print $4}'}
 
@@ -62,8 +62,8 @@ ${offset 800}cpu3: ${cpubar 6,100 cpu3} ${cpu cpu3}%
 ${voffset -140}
 ${offset 1000}${font sans-serif:bold:size=8}MEMORY
 ${voffset 4}
-${offset 1000}${memgraph 20,150 FFFFFF FFFFFF -l}
-${offset 1000}${font sans-serif:normal:size=8}ram: $mem / $memmax
+${offset 1000}${memgraph 20,150 -l}
+${offset 1000}${font sans-serif:normal:size=8}$mem / $memmax
 ${offset 1000}ram: ${membar 6,100} $memperc%
 
 ${offset 1000}${swap} / ${swapmax}
