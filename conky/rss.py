@@ -3,6 +3,8 @@
 import re
 from urllib.request import urlopen
 
+W = 78
+
 url = "https://www.elfinancierocr.com"
 page = urlopen(url)
 
@@ -19,7 +21,10 @@ if mRSS:
         if mStory:
             title = mStory.group(1)
             time = mStory.group(2)
-            print("%s - %s"%(time,title))
+            print("%8s - %s"%(time,title[0:W]))
+            if len(title)>W:
+                print("           %s"%(title[W:len(title)]))
+
 
 
 

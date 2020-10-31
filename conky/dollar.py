@@ -28,5 +28,5 @@ if mRSS:
 
 
 print("%s"%(time))
-print("%s - %s"%(dollar[0],dollar[1]))
+print("BAC:  %s - %s"%(dollar[0],dollar[1]))
 

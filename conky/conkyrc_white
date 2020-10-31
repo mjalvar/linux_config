@@ -17,7 +17,7 @@ own_window_argb_visual yes
 ##############################################
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer yes
-minimum_size 1200 180
+minimum_size 1900 180
 draw_shades no
 draw_outline no
 draw_borders no
@@ -26,8 +26,8 @@ default_color aaaaaa
 default_shade_color 000000
 default_outline_color 828282
 alignment top_left
-gap_x 710
-gap_y 880
+gap_x 010
+gap_y 920
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
@@ -37,64 +37,70 @@ cpu_avg_samples 2
 ##############################################
 
 TEXT
-${offset 0}${font sans-serif:bold:size=8}SYSTEM
-${offset 0}${hr}
-${offset 0}${font sans-serif:normal:size=8}IP: ${addr wlp4s0}
-${offset 0}HOST: $nodename
-${offset 0}UPTIME: $uptime_short
+${offset 0}${font sans-serif:bold:size=8}NEWS
+${hr}
+${font sans-serif:normal:size=8}
+${execi 600 ~/Config/conky/rss.py}
 
-${offset 0}${color a7cc5c}${execi 600 ~/Config/conky/dollar.py} $color
+${voffset -171}
+${offset 600}${font sans-serif:bold:size=8}SYSTEM
+${voffset 14}
+${offset 600}${font sans-serif:normal:size=8}IP: ${addr wlp4s0}
+${offset 600}HOST: $nodename
+${offset 600}UPTIME: $uptime_short
 
-${voffset -130}
-${offset 200}${font sans-serif:bold:size=8}PROCESSORS
+${offset 600}${exec sensors | grep 'Package id' | awk '{print $4}'}
+
+${offset 600}${color a7cc5c}${execi 600 ~/Config/conky/dollar.py | grep /}
+${offset 600}${execi 600 ~/Config/conky/dollar.py | grep BAC} $color
+
+${voffset -170}
+${offset 800}${font sans-serif:bold:size=8}PROCESSORS
 ${voffset 4}
-${offset 200}${font sans-serif:normal:size=8}${loadgraph 20,150}
-${offset 200}cpu0: ${cpubar 6,100 cpu0} ${cpu cpu0}%
-${offset 200}cpu1: ${cpubar 6,100 cpu1} ${cpu cpu1}%
-${offset 200}cpu2: ${cpubar 6,100 cpu2} ${cpu cpu2}%
-${offset 200}cpu3: ${cpubar 6,100 cpu3} ${cpu cpu3}%
+${offset 800}${font sans-serif:normal:size=8}${loadgraph 20,150}
+${offset 800}cpu0: ${cpubar 6,100 cpu0} ${cpu cpu0}%
+${offset 800}cpu1: ${cpubar 6,100 cpu1} ${cpu cpu1}%
+${offset 800}cpu2: ${cpubar 6,100 cpu2} ${cpu cpu2}%
+${offset 800}cpu3: ${cpubar 6,100 cpu3} ${cpu cpu3}%
 
 ${voffset -140}
-${offset 400}${font sans-serif:bold:size=8}MEMORY
+${offset 1000}${font sans-serif:bold:size=8}MEMORY
 ${voffset 4}
-${offset 400}${font sans-serif:normal:size=8}ram: $mem / $memmax
-${offset 400}${membar 6,100} $memperc%
-${offset 400}swp: ${swap} / ${swapmax}
-${offset 400}${swapbar 6,100} ${swapperc}%
+${offset 1000}${font sans-serif:normal:size=8}ram: $mem / $memmax
+${offset 1000}${membar 6,100} $memperc%
+${offset 1000}swp: ${swap} / ${swapmax}
+${offset 1000}${swapbar 6,100} ${swapperc}%
 
 
 ${voffset -122}
-${offset 600}${font sans-serif:bold:size=8}STORAGE
+${offset 1200}${font sans-serif:bold:size=8}STORAGE
 ${voffset 4}
-${offset 600}${font sans-serif:normal:size=8}hdd: $alignc ${fs_used /} / ${fs_size /}
-${offset 600}${fs_bar 6,100 /} ${fs_used_perc /}%
+${offset 1200}${font sans-serif:normal:size=8}hdd: ${fs_used /} / ${fs_size /}
+${offset 1200}${fs_bar 6,100 /} ${fs_used_perc /}%
 
 
 
 ${voffset -108}
-${offset 800}${font sans-serif:bold:size=8}TOP  PROCESSES
+${offset 1400}${font sans-serif:bold:size=8}TOP PROCESSES
 ${voffset 4}
-${offset 800}${font sans-serif:normal:size=8}${top_mem name 1}${goto 910}${top mem 1} %
-${offset 800}${top_mem name 2} ${goto 910} ${top mem 2} %
-${offset 800}$font${top_mem name 3}${goto 910}${top mem 3} %
+${offset 1400}${font sans-serif:normal:size=8}${top_mem name 1}${goto 1510}${top mem 1} %
+${offset 1400}${top_mem name 2} ${goto 1510}${top mem 2} %
+${offset 1400}$font${top_mem name 3}${goto 1510}${top mem 3} %
 
-${offset 800}$font${top name 1}${goto 910}${top cpu 1} %
-${offset 800}$font${top name 2}${goto 910}${top cpu 2} %
-${offset 800}$font${top name 3}${goto 910}${top cpu 3} %
+${offset 1400}$font${top name 1}${goto 1510}${top cpu 1} %
+${offset 1400}$font${top name 2}${goto 1510}${top cpu 2} %
+${offset 1400}$font${top name 3}${goto 1510}${top cpu 3} %
 
 
 ${voffset -168}
-${offset 1000}${font sans-serif:bold:size=8}NETWORK
+${offset 1600}${font sans-serif:bold:size=8}NETWORK
 ${voffset 4}
-${offset 1000}Signal: $alignr ${wireless_link_qual_perc wlp4s0}%
-${offset 1000}${downspeedgraph wlp4s0 789e2d a7cc5c}
-${offset 1000}Download: ${downspeed wlp4s0} Total: ${totaldown wlp4s0}
-${offset 1000}${upspeedgraph wlp4s0}
-${offset 1000}Upload: ${upspeed wlp4s0} Total: ${totalup wlp4s0}
+${offset 1600}${wireless_essid wlp4s0} ${wireless_link_qual_perc wlp4s0}%
+${offset 1600}${downspeedgraph wlp4s0 20,300 789e2d a7cc5c}
+${offset 1600}DN: ${downspeed wlp4s0} Total: ${totaldown wlp4s0}
+${offset 1600}${upspeedgraph wlp4s0 20,300}
+${offset 1600}UP: ${upspeed wlp4s0} Total: ${totalup wlp4s0}
 
 
-${voffset -70}
-${font sans-serif:normal:size=8}
-${offset 0}${execi 600 ~/Config/conky/rss.py}
 
 
