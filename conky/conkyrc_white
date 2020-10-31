@@ -27,11 +27,11 @@ default_shade_color 000000
 default_outline_color 828282
 alignment top_left
 gap_x 710
-gap_y 890
-#no_buffers yes
+gap_y 880
+no_buffers yes
 uppercase no
 cpu_avg_samples 2
-override_utf8_locale no
+#override_utf8_locale no
 ##############################################
 #  Output
 ##############################################
@@ -39,11 +39,13 @@ override_utf8_locale no
 TEXT
 ${offset 0}${font sans-serif:bold:size=8}SYSTEM
 ${offset 0}${hr}
-${offset 0}${font sans-serif:bold:size=8}IP: ${addr wlan0}
-${offset 0}${font sans-serif:bold:size=8}HOST: $nodename.local
-${offset 0}${font sans-serif:bold:size=8}UPTIME: $uptime_short
+${offset 0}${font sans-serif:normal:size=8}IP: ${addr wlp4s0}
+${offset 0}HOST: $nodename
+${offset 0}UPTIME: $uptime_short
 
-${voffset -91}
+${offset 0}${color a7cc5c}${execi 600 ~/Config/conky/dollar.py} $color
+
+${voffset -130}
 ${offset 200}${font sans-serif:bold:size=8}PROCESSORS
 ${voffset 4}
 ${offset 200}${font sans-serif:normal:size=8}${loadgraph 20,150}
@@ -86,6 +88,13 @@ ${offset 1000}${font sans-serif:bold:size=8}NETWORK
 ${voffset 32}
 ${offset 1000}Signal: $alignr ${wireless_link_qual_perc wlp4s0}%
 ${offset 1000}${downspeedgraph wlp4s0 789e2d a7cc5c}
-${offset 1000}Download: ${downspeed wlp4s0} $alignr Total: ${totaldown wlp4s0}
+${offset 1000}Download: ${downspeed wlp4s0} Total: ${totaldown wlp4s0}
 ${offset 1000}${upspeedgraph wlp4s0}
-${offset 1000}Upload: ${upspeed wlp4s0} $alignr Total: ${totalup wlp4s0}
+${offset 1000}Upload: ${upspeed wlp4s0} Total: ${totalup wlp4s0}
+
+
+${voffset -100}
+${font sans-serif:normal:size=8}
+${offset 0}${execi 600 ~/Config/conky/rss.py}
+
+
