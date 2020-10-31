@@ -1,58 +1,54 @@
-# conky configuration
-##############################################
-# Settings
-##############################################
-background yes
-use_xft yes
-xftfont Liberation Sans:size=9
-xftalpha 1
-update_interval 2.0
-total_run_times 0
-own_window yes
-own_window_transparent yes
-##############################################
-## cairo-compmgr
-own_window_type override
-own_window_argb_visual yes
-##############################################
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-double_buffer yes
-minimum_size 1900 180
-draw_shades no
-draw_outline no
-draw_borders no
-draw_graph_borders no
-default_color aaaaaa
-default_shade_color 000000
-default_outline_color 828282
-alignment top_left
-gap_x 010
-gap_y 920
-no_buffers yes
-uppercase no
-cpu_avg_samples 2
-#override_utf8_locale no
-##############################################
-#  Output
-##############################################
 
-TEXT
-${offset 0}${font sans-serif:bold:size=8}NEWS
+conky.config = {
+	background  = true,
+	use_xft = true,
+	font = 'sans-serif:normal:size=8',
+	xftalpha = 1,
+	update_interval = 2.0,
+	total_run_times = 0,
+	own_window  = true,
+	own_window_transparent  = true,
+	-- cairo-compmgr,
+	own_window_type = 'override',
+	own_window_argb_visual  = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	double_buffer  = true,
+	minimum_width = 1900,
+	minimum_height = 180,
+	draw_shades  = false,
+	draw_outline  = false,
+	draw_borders  = false,
+	draw_graph_borders  = false,
+	default_color = 'aaaaaa',
+	default_shade_color = '000000',
+	default_outline_color = '828282',
+	alignment = 'top_left',
+	gap_x = 010,
+	gap_y = 910,
+	no_buffers = true,
+	uppercase  = false,
+	cpu_avg_samples = 2,
+	-- override_utf8_locale  = false,
+}
+
+
+conky.text = [[
+${font sans-serif:bold:size=8}NEWS
 ${hr}
 ${font sans-serif:normal:size=8}
 ${execi 600 ~/Config/conky/rss.py}
 
-${voffset -171}
-${offset 600}${font sans-serif:bold:size=8}SYSTEM
+${voffset -181}
+${goto 600}${font sans-serif:bold:size=8}SYSTEM
 ${voffset 14}
-${offset 600}${font sans-serif:normal:size=8}IP: ${addr wlp4s0}
-${offset 600}HOST: $nodename
-${offset 600}UPTIME: $uptime_short
+${goto 600}${font sans-serif:normal:size=8}IP: ${addr wlp4s0}
+${goto 600}HOST: $nodename
+${goto 600}UPTIME: $uptime_short
 
-${offset 600}${exec sensors | grep 'Package id' | awk '{print $4}'}
+${goto 600}${exec sensors | grep 'Package id' | awk '{print $4}'}
 
-${offset 600}${color a7cc5c}${execi 600 ~/Config/conky/dollar.py | grep /}
-${offset 600}${execi 600 ~/Config/conky/dollar.py | grep BAC} $color
+${goto 600}${color a7cc5c}${execi 600 ~/Config/conky/dollar.py | grep /}
+${goto 600}${execi 600 ~/Config/conky/dollar.py | grep BAC} $color
 
 ${voffset -170}
 ${offset 800}${font sans-serif:bold:size=8}PROCESSORS
@@ -66,13 +62,15 @@ ${offset 800}cpu3: ${cpubar 6,100 cpu3} ${cpu cpu3}%
 ${voffset -140}
 ${offset 1000}${font sans-serif:bold:size=8}MEMORY
 ${voffset 4}
+${offset 1000}${memgraph 20,150 FFFFFF FFFFFF -l}
 ${offset 1000}${font sans-serif:normal:size=8}ram: $mem / $memmax
-${offset 1000}${membar 6,100} $memperc%
-${offset 1000}swp: ${swap} / ${swapmax}
-${offset 1000}${swapbar 6,100} ${swapperc}%
+${offset 1000}ram: ${membar 6,100} $memperc%
+
+${offset 1000}${swap} / ${swapmax}
+${offset 1000}swp: ${swapbar 6,100} ${swapperc}%
 
 
-${voffset -122}
+${voffset -166}
 ${offset 1200}${font sans-serif:bold:size=8}STORAGE
 ${voffset 4}
 ${offset 1200}${font sans-serif:normal:size=8}hdd: ${fs_used /} / ${fs_size /}
@@ -86,13 +84,15 @@ ${voffset 4}
 ${offset 1400}${font sans-serif:normal:size=8}${top_mem name 1}${goto 1510}${top mem 1} %
 ${offset 1400}${top_mem name 2} ${goto 1510}${top mem 2} %
 ${offset 1400}$font${top_mem name 3}${goto 1510}${top mem 3} %
+${offset 1400}$font${top_mem name 4}${goto 1510}${top mem 4} %
 
 ${offset 1400}$font${top name 1}${goto 1510}${top cpu 1} %
 ${offset 1400}$font${top name 2}${goto 1510}${top cpu 2} %
 ${offset 1400}$font${top name 3}${goto 1510}${top cpu 3} %
+${offset 1400}$font${top name 4}${goto 1510}${top cpu 4} %
 
 
-${voffset -168}
+${voffset -186}
 ${offset 1600}${font sans-serif:bold:size=8}NETWORK
 ${voffset 4}
 ${offset 1600}${wireless_essid wlp4s0} ${wireless_link_qual_perc wlp4s0}%
@@ -100,7 +100,7 @@ ${offset 1600}${downspeedgraph wlp4s0 20,300 789e2d a7cc5c}
 ${offset 1600}DN: ${downspeed wlp4s0} Total: ${totaldown wlp4s0}
 ${offset 1600}${upspeedgraph wlp4s0 20,300}
 ${offset 1600}UP: ${upspeed wlp4s0} Total: ${totalup wlp4s0}
-
+]];
 
 
 
