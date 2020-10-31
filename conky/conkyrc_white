@@ -56,24 +56,24 @@ ${offset 200}cpu3: ${cpubar 6,100 cpu3} ${cpu cpu3}%
 
 ${voffset -140}
 ${offset 400}${font sans-serif:bold:size=8}MEMORY
-${voffset 32}
+${voffset 4}
 ${offset 400}${font sans-serif:normal:size=8}ram: $mem / $memmax
 ${offset 400}${membar 6,100} $memperc%
 ${offset 400}swp: ${swap} / ${swapmax}
 ${offset 400}${swapbar 6,100} ${swapperc}%
 
 
-${voffset -148}
+${voffset -122}
 ${offset 600}${font sans-serif:bold:size=8}STORAGE
-${voffset 32}
+${voffset 4}
 ${offset 600}${font sans-serif:normal:size=8}hdd: $alignc ${fs_used /} / ${fs_size /}
 ${offset 600}${fs_bar 6,100 /} ${fs_used_perc /}%
 
 
 
-${voffset -136}
+${voffset -108}
 ${offset 800}${font sans-serif:bold:size=8}TOP  PROCESSES
-${voffset 32}
+${voffset 4}
 ${offset 800}${font sans-serif:normal:size=8}${top_mem name 1}${goto 910}${top mem 1} %
 ${offset 800}${top_mem name 2} ${goto 910} ${top mem 2} %
 ${offset 800}$font${top_mem name 3}${goto 910}${top mem 3} %
@@ -83,9 +83,9 @@ ${offset 800}$font${top name 2}${goto 910}${top cpu 2} %
 ${offset 800}$font${top name 3}${goto 910}${top cpu 3} %
 
 
-${voffset -198}
+${voffset -168}
 ${offset 1000}${font sans-serif:bold:size=8}NETWORK
-${voffset 32}
+${voffset 4}
 ${offset 1000}Signal: $alignr ${wireless_link_qual_perc wlp4s0}%
 ${offset 1000}${downspeedgraph wlp4s0 789e2d a7cc5c}
 ${offset 1000}Download: ${downspeed wlp4s0} Total: ${totaldown wlp4s0}
@@ -93,7 +93,7 @@ ${offset 1000}${upspeedgraph wlp4s0}
 ${offset 1000}Upload: ${upspeed wlp4s0} Total: ${totalup wlp4s0}
 
 
-${voffset -100}
+${voffset -70}
 ${font sans-serif:normal:size=8}
 ${offset 0}${execi 600 ~/Config/conky/rss.py}
 
