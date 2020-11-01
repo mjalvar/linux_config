@@ -38,7 +38,7 @@ ${hr}
 ${font sans-serif:normal:size=8}
 ${execi 600 ~/Config/conky/rss.py}
 
-${voffset -181}
+${voffset -194}
 ${goto 600}${font sans-serif:bold:size=8}SYSTEM
 ${voffset 14}
 ${goto 600}$nodename $kernel
@@ -59,7 +59,7 @@ ${offset 800}cpu1: ${cpubar 6,100 cpu1} ${cpu cpu1}%
 ${offset 800}cpu2: ${cpubar 6,100 cpu2} ${cpu cpu2}%
 ${offset 800}cpu3: ${cpubar 6,100 cpu3} ${cpu cpu3}%
 
-${voffset -140}
+${voffset -141}
 ${offset 1000}${font sans-serif:bold:size=8}MEMORY
 ${voffset 4}
 ${offset 1000}${memgraph 20,150 -l}
@@ -70,7 +70,7 @@ ${offset 1000}${swap} / ${swapmax}
 ${offset 1000}swp: ${swapbar 6,100} ${swapperc}%
 
 
-${voffset -166}
+${voffset -167}
 ${offset 1200}${font sans-serif:bold:size=8}STORAGE
 ${voffset 4}
 ${offset 1200}${font sans-serif:normal:size=8}hdd: ${fs_used /} / ${fs_size /}
@@ -78,7 +78,7 @@ ${offset 1200}${fs_bar 6,100 /} ${fs_used_perc /}%
 
 
 
-${voffset -108}
+${voffset -107}
 ${offset 1400}${font sans-serif:bold:size=8}TOP PROCESSES
 ${voffset 4}
 ${offset 1400}${font sans-serif:normal:size=8}${top_mem name 1}${goto 1510}${top mem 1} %
