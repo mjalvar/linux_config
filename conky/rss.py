@@ -22,6 +22,10 @@ if mRSS:
         if mStory:
             title = mStory.group(1)
             time = mStory.group(2)
+
+            array = title.split(" <img src")
+            title = array[0]
+
             cnt += 1
             print("%8s - %s"%(time,title[0:W]))
             if len(title)>W:
