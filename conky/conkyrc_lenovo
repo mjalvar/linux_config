@@ -14,8 +14,6 @@ conky.config = {
 	own_window_argb_visual  = true,
 	own_window_hints = 'undecorated,above,sticky,skip_taskbar,skip_pager',
 	double_buffer  = true,
-	-- minimum_width = 1900,
-	-- minimum_height = 180,
 	draw_shades  = false,
 	draw_outline  = false,
 	draw_borders  = false,
@@ -32,13 +30,8 @@ conky.config = {
 	-- override_utf8_locale  = false,
 }
 
-
 conky.text = [[
-${loadgraph 40,150 ff0000 00ff00} 
-${memgraph 40,150 ff0000 00ff00}
 $alignr ${platform coretemp.0/hwmon/hwmon7 temp 1}C
 $alignr ${battery_percent BAT0}%
+${memgraph 40,150 ff0000 00ff00} ${loadgraph 40,150 ff0000 00ff00} 
 ]];
-
-
-
