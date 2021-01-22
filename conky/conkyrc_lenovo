@@ -1,0 +1,44 @@
+# for lenovo gnome
+
+conky.config = {
+	background  = true,
+	use_xft = true,
+	font = 'sans-serif:normal:size=8',
+	xftalpha = 1,
+	update_interval = 2.0,
+	total_run_times = 0,
+	own_window  = true,
+	own_window_transparent  = true,
+	-- cairo-compmgr,
+	own_window_type = 'normal',
+	own_window_argb_visual  = true,
+	own_window_hints = 'undecorated,above,sticky,skip_taskbar,skip_pager',
+	double_buffer  = true,
+	-- minimum_width = 1900,
+	-- minimum_height = 180,
+	draw_shades  = false,
+	draw_outline  = false,
+	draw_borders  = false,
+	draw_graph_borders  = false,
+	default_color = 'aaaaaa',
+	default_shade_color = '000000',
+	default_outline_color = '828282',
+	alignment = 'br',
+	gap_x = 010,
+	-- gap_y = 910,
+	no_buffers = true,
+	uppercase  = false,
+	cpu_avg_samples = 2,
+	-- override_utf8_locale  = false,
+}
+
+
+conky.text = [[
+${loadgraph 40,150 ff0000 00ff00} 
+${memgraph 40,150 ff0000 00ff00}
+$alignr ${platform coretemp.0/hwmon/hwmon7 temp 1}C
+$alignr ${battery_percent BAT0}%
+]];
+
+
+
