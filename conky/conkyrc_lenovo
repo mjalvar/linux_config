@@ -33,5 +33,5 @@ conky.config = {
 conky.text = [[
 $alignr ${platform coretemp.0/hwmon/hwmon7 temp 1}C
 $alignr ${battery_percent BAT0}%
-${memgraph 40,150 ff0000 00ff00} ${loadgraph 40,150 ff0000 00ff00} 
+${memgraph 40,150 00ff00 ff0000 -t} ${loadgraph 40,150 00ff00 ff0000 -t}
 ]];
