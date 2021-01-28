@@ -1,4 +1,4 @@
-# for lenovo gnome
+# minimal config
 
 conky.config = {
 	background  = true,
@@ -22,8 +22,8 @@ conky.config = {
 	default_shade_color = '000000',
 	default_outline_color = '828282',
 	alignment = 'br',
-	gap_x = 010,
-	gap_y = 010,
+	gap_x = 10,
+	gap_y = 10,
 	no_buffers = true,
 	uppercase  = false,
 	cpu_avg_samples = 2,
