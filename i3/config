@@ -243,7 +243,8 @@ exec --no-startup-id conky -c $HOME/Config/conky/conkyrc_white
 exec --no-startup-id /usr/bin/python3 /usr/bin/blueman-applet
 
 exec --no-startup-id compton --config $HOME/Config/i3/compton.conf
-exec --no-startup-id feh --bg-scale ~/Config/wall/current.png
+#exec --no-startup-id feh --bg-scale ~/Config/wall/current.png
+exec --no-startup-id feh --bg-max ~/Config/wall/current.png
 
 # brightness
 # sudo bash -c "echo 100 > /sys/class/backlight/intel_backlight/brightness;
