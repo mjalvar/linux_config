@@ -237,12 +237,13 @@ exec --no-startup-id synclient TapButton1=1
 # exec synapse
 exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout es,en_US"
 exec --no-startup-id redshift
-#exec --no-startup-id conky -c $HOME/Config/conky/conkyrc_white
+exec --no-startup-id conky -c $HOME/Config/conky/conkyrc_white
 
 # bluetooth
 exec --no-startup-id /usr/bin/python3 /usr/bin/blueman-applet
 
 exec --no-startup-id compton --config $HOME/Config/i3/compton.conf
+#exec --no-startup-id feh --bg-scale ~/Config/wall/current.png
 exec --no-startup-id feh --bg-scale ~/Config/wall/current.png
 exec --no-startup-id nextcloud
 
