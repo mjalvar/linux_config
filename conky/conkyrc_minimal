@@ -4,7 +4,7 @@ conky.config = {
 	background  = true,
 	use_xft = true,
 	font = 'sans-serif:normal:size=8',
-	xftalpha = 1,
+	xftalpha = 0.8,
 	update_interval = 2.0,
 	total_run_times = 0,
 	own_window  = true,
