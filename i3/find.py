@@ -12,7 +12,7 @@ import sys
 import re
 from os import getenv
 from argparse import ArgumentParser, RawTextHelpFormatter
-from cgi import escape
+from html import escape
 from base64 import b64encode, b64decode
 from subprocess import Popen, PIPE, check_output
 #from recoll import recoll
@@ -107,10 +107,11 @@ def process_doc(query, doc, match_obj, args):
 
 def run_query(pattern,path):
     result = []
-    print '>/usr/bin/find %s -iname %s<'%(path,pattern)
+    print('>/usr/bin/find %s -iname %s<'%(path,pattern))
     #result = os.popen( '/usr/bin/find %s -iname %s'%(path,pattern) ).read().strip()
     result = check_output( ['find',path,'-iname',pattern] )
-    #print result
+    result = result.decode()
+    print(result)
     """
     for root, dirs, files in os.walk(path):
         for name in files:
@@ -158,7 +159,7 @@ def handle_args():
                         help='Copy path of selected match to X primary selection (xclip required)')
     parser.add_argument('-V', '--version', action='version', help='Show program version.',
                         version='%(prog)s {version}'.format(version=__version__))
-    parser.add_argument('--prompt', default='Search: ', help='Rofi prompt')
+    parser.add_argument('--prompt', default='Search', help='Rofi prompt')
 
     colors = ['--color-abstract', '--color-file-info', '--color-path', '--color-title']
     for color in colors:
@@ -172,7 +173,7 @@ def main(argv):
 
     # If query wasn't specified on command line, open a Rofi dialog to ask for it
     if not args.query_string:
-        rofi_search_cmd = ['rofi','-theme','~/Config/i3/rofi.theme','-dmenu','-p', args.prompt]
+        rofi_search_cmd = ['rofi','-theme','~/.cache/wal/colors-rofi-light.rasi','-dmenu','-p', args.prompt]
 
         if args.rofi_options:
             rofi_search_cmd += args.rofi_options.split()
@@ -180,7 +181,7 @@ def main(argv):
         search_dialog = Popen(rofi_search_cmd, stdout=PIPE, stderr=PIPE)
         args.query_string = to_unicode(search_dialog.communicate()[0].strip())
 
-        print args.query_string
+        print(args.query_string)
 
         if search_dialog.returncode != 0:
             sys.exit(1)
@@ -197,8 +198,8 @@ def main(argv):
     if args.query_string:
         #results_list = run_query(recoll_db, args)
         #results_list = ['/home/mjalvar/Documents/Latex/tutorial/hello.pdf\t','algo2']
-        results_list = run_query(args.query_string, '/home/mjalvar/Documents/HPE/repos/pls-svn')
-        print results_list
+        results_list = run_query(args.query_string, '/home/mjalvar')
+        print(results_list)
         """
         for i,r in enumerate(results_list):
             print "Debug %0d => %s"%(i,r)
@@ -215,8 +216,8 @@ def main(argv):
     if not args.show_abstract:
         rofi_element_height = '2'
 
-    rofi_results_cmd = ['rofi','-theme','~/Config/i3/rofi.theme','-dmenu', 'markup-rows', '-eh', rofi_element_height,
-            '-sep', '\t', '-p', 'Filter results: ']
+    rofi_results_cmd = ['rofi','-theme','~/.cache/wal/colors-rofi-light.rasi','-dmenu', 'markup-rows', '-eh', rofi_element_height,
+            '-sep', '\t', '-p', 'Filter results']
     if args.rofi_options:
         rofi_results_cmd += args.rofi_options.split()
 
