@@ -61,7 +61,7 @@ font-2 = FontAwesome:pixelsize=12;0
 modules-left = i3
 modules-center =
 ;modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
-modules-right = filesystem pulseaudio xkeyboard memory cpu vpn wlan eth battery temperature date
+modules-right = filesystem pulseaudio xkeyboard memory cpu temperature vpn wlan eth battery date
 
 tray-position = right
 tray-padding = 1
@@ -376,7 +376,8 @@ animation-discharging-framerate = 1000
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 90
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
+hwmon-path =  /sys/devices/platform/coretemp.0/hwmon/hwmon8/temp1_input
+
 
 format = <ramp> <label>
 format-underline = #f50a4d

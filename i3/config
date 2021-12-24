@@ -54,7 +54,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run -sb '#455A64' -sf '#81C784'
 #bindsym $mod+d exec "rofi -combi-modi window,drun -show combi"
-bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -theme $HOME/.cache/wal/colors-rofi-light.rasi
+bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -theme $HOME/Config/rofi/colors-rofi-light.rasi
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -238,9 +238,9 @@ exec --no-startup-id synclient TapButton1=1
 # exec synapse
 exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout es,en_US"
 exec --no-startup-id redshift
-exec --no-startup-id conky -c $HOME/Config/conky/conkyrc_white
-exec --no-startup-id conky -c $HOME/Config/conky/conkyrc_lenovo
-exec --no-startup-id sudo slimbookbattery
+#exec --no-startup-id conky -c $HOME/Config/conky/conkyrc_white
+#exec --no-startup-id conky -c $HOME/Config/conky/conkyrc_lenovo
+exec --no-startup-id slimbookbattery --minimize
 
 # bluetooth
 exec --no-startup-id /usr/bin/python3 /usr/bin/blueman-applet
